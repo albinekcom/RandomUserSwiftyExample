@@ -1,14 +1,6 @@
-//
-//  RandomUserSwiftyiOSExampleUITests.swift
-//  RandomUserSwiftyiOSExampleUITests
-//
-//  Created by Albin Sadowski on 14/11/2018.
-//  Copyright © 2018 Albin Sadowski. All rights reserved.
-//
-
 import XCTest
 
-class RandomUserSwiftyiOSExampleUITests: XCTestCase {
+final class RandomUserSwiftyiOSExampleUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
