@@ -7,8 +7,11 @@ final class ViewController: UIViewController {
         
         let apiService = APIService()
         
-        apiService.request(.results(1)) { (users, error) in
-           print("Random users: \(users!)")
+        let resultsCount = Configuration.resultsCount
+        let apiVersion = Configuration.apiVersion
+        
+        apiService.request(.results(resultsCount, apiVersion: apiVersion)) { (results, error) in
+            print("Results are: \(results!)")
         }
     }
     

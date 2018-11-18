@@ -4,11 +4,11 @@ import XCTest
 final class EndpointTests: XCTestCase {
     
     func testEndpointResults() {
-        let results5 = Endpoint.results(5)
-        XCTAssertEqual("https://randomuser.me/api/?results=5", results5.url?.absoluteString)
+        let results5Endpoint = Endpoint.results(5, apiVersion: 1.2)
+        XCTAssertEqual("https://randomuser.me/api/1.2/?results=5&exc=location", results5Endpoint.url?.absoluteString)
         
-        let results100 = Endpoint.results(100)
-        XCTAssertEqual("https://randomuser.me/api/?results=100", results100.url?.absoluteString)
+        let results100Endpoint = Endpoint.results(100, apiVersion: 1.2)
+        XCTAssertEqual("https://randomuser.me/api/1.2/?results=100&exc=location", results100Endpoint.url?.absoluteString)
     }
-
+    
 }
