@@ -8,6 +8,10 @@ class UsersStorage: NSObject {
         allUsers.remove(at: index)
     }
     
+    var usersCount: Int {
+        return allUsers.count
+    }
+    
     func getUser(at index: Int) -> User {
         return allUsers[index]
     }

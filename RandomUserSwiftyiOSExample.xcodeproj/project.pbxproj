@@ -12,11 +12,11 @@
 		8C59E74921A2849300714602 /* PictureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74521A2849300714602 /* PictureFactory.swift */; };
 		8C59E74A21A2849300714602 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74621A2849300714602 /* UserFactory.swift */; };
 		8C59E74C21A285B500714602 /* UsersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74B21A285B500714602 /* UsersStorage.swift */; };
+		8C59E75321A2891900714602 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E75221A2891800714602 /* ListTableViewController.swift */; };
 		8C7DE37521A0876D00FE1017 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37421A0876D00FE1017 /* APIService.swift */; };
 		8C7DE37821A08BF000FE1017 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37721A08BF000FE1017 /* Endpoint.swift */; };
 		8C7DE37D21A0968C00FE1017 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37C21A0968C00FE1017 /* EndpointTests.swift */; };
 		8CB58242219CB8E300FBCE6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB58241219CB8E300FBCE6C /* AppDelegate.swift */; };
-		8CB58244219CB8E300FBCE6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB58243219CB8E300FBCE6C /* ViewController.swift */; };
 		8CB58247219CB8E300FBCE6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB58245219CB8E300FBCE6C /* Main.storyboard */; };
 		8CB58249219CB8E400FBCE6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB58248219CB8E400FBCE6C /* Assets.xcassets */; };
 		8CB5824C219CB8E400FBCE6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB5824A219CB8E400FBCE6C /* LaunchScreen.storyboard */; };
@@ -51,12 +51,12 @@
 		8C59E74521A2849300714602 /* PictureFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureFactory.swift; sourceTree = "<group>"; };
 		8C59E74621A2849300714602 /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		8C59E74B21A285B500714602 /* UsersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStorage.swift; sourceTree = "<group>"; };
+		8C59E75221A2891800714602 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		8C7DE37421A0876D00FE1017 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8C7DE37721A08BF000FE1017 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8C7DE37C21A0968C00FE1017 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		8CB5823E219CB8E300FBCE6C /* RandomUserSwiftyiOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUserSwiftyiOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB58241219CB8E300FBCE6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8CB58243219CB8E300FBCE6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8CB58246219CB8E300FBCE6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8CB58248219CB8E400FBCE6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CB5824B219CB8E400FBCE6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,6 +110,32 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8C59E75021A2891800714602 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8C59E75121A2891800714602 /* List */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		8C59E75121A2891800714602 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				8C59E75221A2891800714602 /* ListTableViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		8C59E75421A28BDB00714602 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5824A219CB8E400FBCE6C /* LaunchScreen.storyboard */,
+				8CB58248219CB8E400FBCE6C /* Assets.xcassets */,
+				8CB58245219CB8E300FBCE6C /* Main.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		8C7DE37621A08BDE00FE1017 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,14 +180,12 @@
 		8CB58240219CB8E300FBCE6C /* RandomUserSwiftyiOSExample */ = {
 			isa = PBXGroup;
 			children = (
+				8C59E75021A2891800714602 /* Screens */,
 				8C7DE37621A08BDE00FE1017 /* API */,
 				8C59E74221A2849300714602 /* Model */,
+				8C59E75421A28BDB00714602 /* UI */,
 				8CB58241219CB8E300FBCE6C /* AppDelegate.swift */,
-				8CB58243219CB8E300FBCE6C /* ViewController.swift */,
 				8CF6F19421A1F7C300415996 /* Configuration.swift */,
-				8CB58245219CB8E300FBCE6C /* Main.storyboard */,
-				8CB58248219CB8E400FBCE6C /* Assets.xcassets */,
-				8CB5824A219CB8E400FBCE6C /* LaunchScreen.storyboard */,
 				8CB5824D219CB8E400FBCE6C /* Info.plist */,
 			);
 			path = RandomUserSwiftyiOSExample;
@@ -318,10 +342,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CF6F18B21A1D2DE00415996 /* APIResponse.swift in Sources */,
-				8CB58244219CB8E300FBCE6C /* ViewController.swift in Sources */,
 				8CF6F18321A1BFD600415996 /* APIResponseParser.swift in Sources */,
 				8CB58242219CB8E300FBCE6C /* AppDelegate.swift in Sources */,
 				8C59E74721A2849300714602 /* Picture.swift in Sources */,
+				8C59E75321A2891900714602 /* ListTableViewController.swift in Sources */,
 				8C59E74821A2849300714602 /* User.swift in Sources */,
 				8C7DE37521A0876D00FE1017 /* APIService.swift in Sources */,
 				8C7DE37821A08BF000FE1017 /* Endpoint.swift in Sources */,
