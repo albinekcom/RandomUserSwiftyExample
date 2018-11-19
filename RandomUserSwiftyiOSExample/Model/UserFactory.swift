@@ -21,7 +21,6 @@ struct UserFactory {
             email: result.email,
             phone: result.phone,
             cell: result.cell,
-            picture: PictureFactory.makePicture(from: result.picture),
             isFavorite: false
         )
         

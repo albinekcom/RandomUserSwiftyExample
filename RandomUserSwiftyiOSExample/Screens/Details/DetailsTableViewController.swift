@@ -1,57 +1,34 @@
 import UIKit
 
-final class DetailsTableViewController: UITableViewController {
-    
+final class DetailsTableViewController: UIViewController {
+
     var user: User?
-    
-    // MARK: - Managing View
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
-    // MARK: - Table View Data Source
+    let presenter = DetailsPresenter()
+    
+}
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+extension DetailsTableViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.detailsViewModels.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: Clean it
-        let textLabelString: String?
-        let detailTextLabel: String?
-        
-        if indexPath.row == 0 {
-            textLabelString = "First Name"
-            detailTextLabel = user?.firstName
-        } else if indexPath.row == 1 {
-            textLabelString = "Last Name"
-            detailTextLabel = user?.lastName
-        } else if indexPath.row == 2 {
-            textLabelString = "Gender"
-            detailTextLabel = user?.gender
-        } else if indexPath.row == 3 {
-            textLabelString = "e-mail"
-            detailTextLabel = user?.email
-        } else if indexPath.row == 4 {
-            textLabelString = "Phone"
-            detailTextLabel = user?.phone
-        } else if indexPath.row == 5 {
-            textLabelString = "Cell phone"
-            detailTextLabel = user?.cell
-        } else {
-            textLabelString = nil
-            detailTextLabel = nil
-        }
+}
+
+extension DetailsTableViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let detailsViewModel = presenter.detailsViewModels[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsTableViewCell", for: indexPath)
         
-        cell.textLabel?.text = textLabelString
-        cell.detailTextLabel?.text = detailTextLabel
+        cell.textLabel?.text = detailsViewModel.textLabelText
+        cell.detailTextLabel?.text = detailsViewModel.detailsLabelText
         
         return cell
     }
