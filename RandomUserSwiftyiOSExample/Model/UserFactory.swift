@@ -2,7 +2,7 @@ import Foundation
 
 struct UserFactory {
     
-    static func makeUser(from results: [APIResponseResult]) -> [User] {
+    static func makeUsers(from results: [APIResponseResult]) -> [User] {
         var users = [User]()
         
         for result in results {

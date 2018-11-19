@@ -11,6 +11,7 @@
 		8C59E74821A2849300714602 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74421A2849300714602 /* User.swift */; };
 		8C59E74921A2849300714602 /* PictureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74521A2849300714602 /* PictureFactory.swift */; };
 		8C59E74A21A2849300714602 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74621A2849300714602 /* UserFactory.swift */; };
+		8C59E74C21A285B500714602 /* UsersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74B21A285B500714602 /* UsersStorage.swift */; };
 		8C7DE37521A0876D00FE1017 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37421A0876D00FE1017 /* APIService.swift */; };
 		8C7DE37821A08BF000FE1017 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37721A08BF000FE1017 /* Endpoint.swift */; };
 		8C7DE37D21A0968C00FE1017 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37C21A0968C00FE1017 /* EndpointTests.swift */; };
@@ -49,6 +50,7 @@
 		8C59E74421A2849300714602 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8C59E74521A2849300714602 /* PictureFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureFactory.swift; sourceTree = "<group>"; };
 		8C59E74621A2849300714602 /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		8C59E74B21A285B500714602 /* UsersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStorage.swift; sourceTree = "<group>"; };
 		8C7DE37421A0876D00FE1017 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8C7DE37721A08BF000FE1017 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8C7DE37C21A0968C00FE1017 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				8C59E74421A2849300714602 /* User.swift */,
 				8C59E74521A2849300714602 /* PictureFactory.swift */,
 				8C59E74621A2849300714602 /* UserFactory.swift */,
+				8C59E74B21A285B500714602 /* UsersStorage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				8C59E74821A2849300714602 /* User.swift in Sources */,
 				8C7DE37521A0876D00FE1017 /* APIService.swift in Sources */,
 				8C7DE37821A08BF000FE1017 /* Endpoint.swift in Sources */,
+				8C59E74C21A285B500714602 /* UsersStorage.swift in Sources */,
 				8CF6F19521A1F7C300415996 /* Configuration.swift in Sources */,
 				8C59E74921A2849300714602 /* PictureFactory.swift in Sources */,
 				8C59E74A21A2849300714602 /* UserFactory.swift in Sources */,
