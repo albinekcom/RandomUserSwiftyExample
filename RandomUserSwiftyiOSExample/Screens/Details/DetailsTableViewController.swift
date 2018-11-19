@@ -21,7 +21,7 @@ final class DetailsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: Move it later
+        // TODO: Clean it
         let textLabelString: String?
         let detailTextLabel: String?
         

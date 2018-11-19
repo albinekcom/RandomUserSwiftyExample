@@ -3,7 +3,7 @@ import UIKit
 final class ListTableViewController: UITableViewController {
     
     private let usersStorage = UsersStorage()
-    private var selectedUser: User?
+    private var selectedUserIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,25 +29,67 @@ final class ListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let user = usersStorage.getUser(at: indexPath.row)
         
+        // TODO: Clean it
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath)
-        cell.textLabel?.text = user.firstName
+        
+        var prefix = ""
+        if user.isFavorite {
+            prefix = "♥️"
+        }
+        
+        cell.textLabel?.text = prefix + user.firstName!
         cell.detailTextLabel?.text = user.lastName
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        selectedUser = usersStorage.getUser(at: indexPath.row)
+        selectedUserIndex = indexPath.row
         
         return indexPath
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        // TODO: Clean it
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { [weak self] (action, indexPath) in
+            guard let strongSelf = self else { return }
+
+            strongSelf.usersStorage.removeUser(at: indexPath.row)
+
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        let user = usersStorage.getUser(at: indexPath.row)
+        
+        let favoriteTitle: String
+        
+        if user.isFavorite {
+            favoriteTitle = "💔"
+        } else {
+            favoriteTitle = "♥️"
+        }
+
+        let favorite = UITableViewRowAction(style: .default, title: favoriteTitle) { [weak self] (action, indexPath) in
+            guard let strongSelf = self else { return }
+
+            let user = strongSelf.usersStorage.getUser(at: indexPath.row)
+            user.toggleFavorite()
+
+            tableView.reloadRows(at: [indexPath], with: .right)
+        }
+
+        favorite.backgroundColor = .yellow
+
+        return [delete, favorite]
     }
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailsTableViewController = segue.destination as? DetailsTableViewController else { return }
+        guard let selectedUserIndex = selectedUserIndex else { return }
         
-        detailsTableViewController.user = selectedUser
+        detailsTableViewController.user = usersStorage.getUser(at: selectedUserIndex)
     }
     
 }
