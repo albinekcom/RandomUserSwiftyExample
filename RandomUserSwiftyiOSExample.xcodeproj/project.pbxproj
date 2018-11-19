@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C59E74721A2849300714602 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74321A2849300714602 /* Picture.swift */; };
+		8C59E74821A2849300714602 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74421A2849300714602 /* User.swift */; };
+		8C59E74921A2849300714602 /* PictureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74521A2849300714602 /* PictureFactory.swift */; };
+		8C59E74A21A2849300714602 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74621A2849300714602 /* UserFactory.swift */; };
 		8C7DE37521A0876D00FE1017 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37421A0876D00FE1017 /* APIService.swift */; };
 		8C7DE37821A08BF000FE1017 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37721A08BF000FE1017 /* Endpoint.swift */; };
 		8C7DE37D21A0968C00FE1017 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37C21A0968C00FE1017 /* EndpointTests.swift */; };
@@ -18,11 +22,7 @@
 		8CB58262219CB8E500FBCE6C /* RandomUserSwiftyiOSExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB58261219CB8E500FBCE6C /* RandomUserSwiftyiOSExampleUITests.swift */; };
 		8CF6F18321A1BFD600415996 /* APIResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6F18221A1BFD600415996 /* APIResponseParser.swift */; };
 		8CF6F18521A1C0FA00415996 /* APIResponseParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6F18421A1C0FA00415996 /* APIResponseParserTests.swift */; };
-		8CF6F18921A1C3F600415996 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6F18721A1C3F600415996 /* User.swift */; };
 		8CF6F18B21A1D2DE00415996 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6F18A21A1D2DE00415996 /* APIResponse.swift */; };
-		8CF6F18D21A1D75500415996 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6F18C21A1D75500415996 /* UserFactory.swift */; };
-		8CF6F18F21A1DE5D00415996 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6F18E21A1DE5D00415996 /* Picture.swift */; };
-		8CF6F19121A1DE7C00415996 /* PictureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6F19021A1DE7C00415996 /* PictureFactory.swift */; };
 		8CF6F19321A1EA7300415996 /* response_mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 8CF6F19221A1EA7300415996 /* response_mock.json */; };
 		8CF6F19521A1F7C300415996 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6F19421A1F7C300415996 /* Configuration.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C59E74321A2849300714602 /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		8C59E74421A2849300714602 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8C59E74521A2849300714602 /* PictureFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureFactory.swift; sourceTree = "<group>"; };
+		8C59E74621A2849300714602 /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		8C7DE37421A0876D00FE1017 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8C7DE37721A08BF000FE1017 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8C7DE37C21A0968C00FE1017 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
@@ -62,11 +66,7 @@
 		8CB58263219CB8E500FBCE6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CF6F18221A1BFD600415996 /* APIResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseParser.swift; sourceTree = "<group>"; };
 		8CF6F18421A1C0FA00415996 /* APIResponseParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseParserTests.swift; sourceTree = "<group>"; };
-		8CF6F18721A1C3F600415996 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = RandomUserSwiftyiOSExample/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		8CF6F18A21A1D2DE00415996 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
-		8CF6F18C21A1D75500415996 /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserFactory.swift; path = RandomUserSwiftyiOSExample/Model/UserFactory.swift; sourceTree = SOURCE_ROOT; };
-		8CF6F18E21A1DE5D00415996 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Picture.swift; path = RandomUserSwiftyiOSExample/Model/Picture.swift; sourceTree = SOURCE_ROOT; };
-		8CF6F19021A1DE7C00415996 /* PictureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PictureFactory.swift; path = RandomUserSwiftyiOSExample/Model/PictureFactory.swift; sourceTree = SOURCE_ROOT; };
 		8CF6F19221A1EA7300415996 /* response_mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response_mock.json; sourceTree = "<group>"; };
 		8CF6F19421A1F7C300415996 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,16 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C7DE37321A086F300FE1017 /* Model */ = {
+		8C59E74221A2849300714602 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8CF6F18721A1C3F600415996 /* User.swift */,
-				8CF6F18C21A1D75500415996 /* UserFactory.swift */,
-				8CF6F18E21A1DE5D00415996 /* Picture.swift */,
-				8CF6F19021A1DE7C00415996 /* PictureFactory.swift */,
+				8C59E74321A2849300714602 /* Picture.swift */,
+				8C59E74421A2849300714602 /* User.swift */,
+				8C59E74521A2849300714602 /* PictureFactory.swift */,
+				8C59E74621A2849300714602 /* UserFactory.swift */,
 			);
-			name = Model;
-			path = "New Group";
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8C7DE37621A08BDE00FE1017 /* API */ = {
@@ -153,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				8C7DE37621A08BDE00FE1017 /* API */,
-				8C7DE37321A086F300FE1017 /* Model */,
+				8C59E74221A2849300714602 /* Model */,
 				8CB58241219CB8E300FBCE6C /* AppDelegate.swift */,
 				8CB58243219CB8E300FBCE6C /* ViewController.swift */,
 				8CF6F19421A1F7C300415996 /* Configuration.swift */,
@@ -315,17 +314,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CF6F18F21A1DE5D00415996 /* Picture.swift in Sources */,
 				8CF6F18B21A1D2DE00415996 /* APIResponse.swift in Sources */,
 				8CB58244219CB8E300FBCE6C /* ViewController.swift in Sources */,
 				8CF6F18321A1BFD600415996 /* APIResponseParser.swift in Sources */,
-				8CF6F18D21A1D75500415996 /* UserFactory.swift in Sources */,
 				8CB58242219CB8E300FBCE6C /* AppDelegate.swift in Sources */,
+				8C59E74721A2849300714602 /* Picture.swift in Sources */,
+				8C59E74821A2849300714602 /* User.swift in Sources */,
 				8C7DE37521A0876D00FE1017 /* APIService.swift in Sources */,
 				8C7DE37821A08BF000FE1017 /* Endpoint.swift in Sources */,
-				8CF6F18921A1C3F600415996 /* User.swift in Sources */,
-				8CF6F19121A1DE7C00415996 /* PictureFactory.swift in Sources */,
 				8CF6F19521A1F7C300415996 /* Configuration.swift in Sources */,
+				8C59E74921A2849300714602 /* PictureFactory.swift in Sources */,
+				8C59E74A21A2849300714602 /* UserFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
