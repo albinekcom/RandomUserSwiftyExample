@@ -26,7 +26,7 @@ extension Endpoint {
             queryItems:
             [
                 URLQueryItem(name: "results", value: String(results)),
-                URLQueryItem(name: "exc", value: "location") // It is due to: https://github.com/RandomAPI/Randomuser.me-Node/issues/113
+                URLQueryItem(name: "exc", value: "location") // HACK: it is a workaround for https://github.com/RandomAPI/Randomuser.me-Node/issues/113
             ]
         )
     }

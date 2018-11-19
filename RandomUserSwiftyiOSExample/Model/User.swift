@@ -2,9 +2,9 @@ import Foundation
 
 final class User {
     
-    let gender: String?
     let firstName: String?
     let lastName: String?
+    let gender: String?
     let email: String?
     let phone: String?
     let cell: String?
@@ -12,10 +12,10 @@ final class User {
     
     private(set) var isFavorite: Bool
     
-    init(gender: String?, firstName: String?, lastName: String?, email: String?, phone: String?, cell: String?, picture: Picture?, isFavorite: Bool) {
-        self.gender = gender
+    init(firstName: String?, lastName: String?, gender: String?, email: String?, phone: String?, cell: String?, picture: Picture?, isFavorite: Bool) {
         self.firstName = firstName
         self.lastName = lastName
+        self.gender = gender
         self.email = email
         self.phone = phone
         self.cell = cell

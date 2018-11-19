@@ -13,6 +13,7 @@
 		8C59E74A21A2849300714602 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74621A2849300714602 /* UserFactory.swift */; };
 		8C59E74C21A285B500714602 /* UsersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74B21A285B500714602 /* UsersStorage.swift */; };
 		8C59E75321A2891900714602 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E75221A2891800714602 /* ListTableViewController.swift */; };
+		8C59E75821A2936400714602 /* DetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E75721A2936400714602 /* DetailsTableViewController.swift */; };
 		8C7DE37521A0876D00FE1017 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37421A0876D00FE1017 /* APIService.swift */; };
 		8C7DE37821A08BF000FE1017 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37721A08BF000FE1017 /* Endpoint.swift */; };
 		8C7DE37D21A0968C00FE1017 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7DE37C21A0968C00FE1017 /* EndpointTests.swift */; };
@@ -52,6 +53,7 @@
 		8C59E74621A2849300714602 /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		8C59E74B21A285B500714602 /* UsersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStorage.swift; sourceTree = "<group>"; };
 		8C59E75221A2891800714602 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		8C59E75721A2936400714602 /* DetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewController.swift; sourceTree = "<group>"; };
 		8C7DE37421A0876D00FE1017 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8C7DE37721A08BF000FE1017 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8C7DE37C21A0968C00FE1017 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				8C59E75121A2891800714602 /* List */,
+				8C59E75621A2934F00714602 /* Details */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -134,6 +137,14 @@
 				8CB58245219CB8E300FBCE6C /* Main.storyboard */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		8C59E75621A2934F00714602 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				8C59E75721A2936400714602 /* DetailsTableViewController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		8C7DE37621A08BDE00FE1017 /* API */ = {
@@ -350,6 +361,7 @@
 				8C7DE37521A0876D00FE1017 /* APIService.swift in Sources */,
 				8C7DE37821A08BF000FE1017 /* Endpoint.swift in Sources */,
 				8C59E74C21A285B500714602 /* UsersStorage.swift in Sources */,
+				8C59E75821A2936400714602 /* DetailsTableViewController.swift in Sources */,
 				8CF6F19521A1F7C300415996 /* Configuration.swift in Sources */,
 				8C59E74921A2849300714602 /* PictureFactory.swift in Sources */,
 				8C59E74A21A2849300714602 /* UserFactory.swift in Sources */,

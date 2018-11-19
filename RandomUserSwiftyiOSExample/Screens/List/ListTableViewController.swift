@@ -2,25 +2,17 @@ import UIKit
 
 final class ListTableViewController: UITableViewController {
     
-    let usersStorage = UsersStorage()
+    private let usersStorage = UsersStorage()
+    private var selectedUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let apiService = APIService()
-        
-        let resultsCount = Configuration.resultsCount
-        let apiVersion = Configuration.apiVersion
-        
-        apiService.request(.results(resultsCount, apiVersion: apiVersion)) { [weak self] (response, error) in
-            guard let strongSelf = self else { return }
-            guard let results = response?.results else { return }
+        APIService().request(.results(Configuration.resultsCount, apiVersion: Configuration.apiVersion)) { [weak self] (response, error) in
+            guard let strongSelf = self, let results = response?.results else { return }
             
             let users = UserFactory.makeUsers(from: results)
             strongSelf.usersStorage.replaceAllUsers(with: users)
-            
-            
-            print("Users are: \(users)")
         }
     }
 
@@ -44,10 +36,18 @@ final class ListTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedUser = usersStorage.getUser(at: indexPath.row)
+        
+        return indexPath
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailsTableViewController = segue.destination as? DetailsTableViewController else { return }
         
+        detailsTableViewController.user = selectedUser
     }
     
 }

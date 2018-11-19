@@ -15,9 +15,9 @@ struct UserFactory {
     
     static func makeUser(from result: APIResponseResult) -> User {
         let user = User(
-            gender: result.gender,
             firstName: result.name?.first,
             lastName: result.name?.last,
+            gender: result.gender,
             email: result.email,
             phone: result.phone,
             cell: result.cell,
