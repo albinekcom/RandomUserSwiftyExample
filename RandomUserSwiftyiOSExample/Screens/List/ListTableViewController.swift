@@ -8,8 +8,12 @@ final class ListTableViewController: UITableViewController {
     private var isFavoriteModeEnabled = false
     private var filterString: String = ""
     
+    @IBOutlet private weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: presenter.getFavoriteButtonTitle(isFavoriteModeEnabled: isFavoriteModeEnabled), style: .plain, target: self, action: #selector(favoriteTapped))
     }
@@ -108,6 +112,16 @@ final class ListTableViewController: UITableViewController {
         }
         
         detailsTableViewController.presenter.user = presenter.getUser(at: indexOfSelectedUser, isFavoriteModeEnabled: isFavoriteModeEnabled, filterString: filterString)
+    }
+    
+}
+
+extension ListTableViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterString = searchText.lowercased()
+        
+        tableView.reloadData()
     }
     
 }
