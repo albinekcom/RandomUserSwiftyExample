@@ -2,69 +2,60 @@ import UIKit
 
 final class ListTableViewController: UITableViewController {
     
-    private let usersStorage = (UIApplication.shared.delegate as! AppDelegate).usersStorage
+    private let presenter = ListPresenter()
+    
     private var indexOfSelectedUser: Int?
-    private let apiService = APIService()
-    
-    private var isFavoriteEnabled = false
-    
-    // MARK: - Table View Data Source
+    private var isFavoriteModeEnabled = false
+    private var filterString: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "♥️", style: .plain, target: self, action: #selector(favoriteTapped))
-        
-        setupFavoriteButtonTitle()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: presenter.getFavoriteButtonTitle(isFavoriteModeEnabled: isFavoriteModeEnabled), style: .plain, target: self, action: #selector(favoriteTapped))
     }
     
     private func setupFavoriteButtonTitle() {
-        if isFavoriteEnabled {
-            navigationItem.rightBarButtonItem?.title = "♥️"
-        } else {
-            navigationItem.rightBarButtonItem?.title = "💙"
+        navigationItem.rightBarButtonItem?.title = presenter.getFavoriteButtonTitle(isFavoriteModeEnabled: isFavoriteModeEnabled)
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func refresh(_ sender: UIRefreshControl) {
+        presenter.refresh() { [weak self] (_) in
+            DispatchQueue.main.async { [weak self] in
+                self?.refreshControl?.endRefreshing()
+                self?.tableView.reloadData()
+            }
         }
     }
     
     @objc private func favoriteTapped() {
-        isFavoriteEnabled = !isFavoriteEnabled
+        isFavoriteModeEnabled = !isFavoriteModeEnabled
         
         setupFavoriteButtonTitle()
         
         tableView.reloadData()
     }
+    
+    // MARK: - UITableViewDataSource
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFavoriteEnabled {
-            return usersStorage.favoriteUsersCount
-        } else {
-            return usersStorage.usersCount
-        }
+        return presenter.getListViewModels(isFavoriteModeEnabled: isFavoriteModeEnabled, filterString: filterString).count
     }
     
+    // MARK: - UITableViewDelegate
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let user: User
+        let listViewModel = presenter.getListViewModels(isFavoriteModeEnabled: isFavoriteModeEnabled, filterString: filterString)[indexPath.row]
         
-        if isFavoriteEnabled {
-            user = usersStorage.getFavoriteUser(at: indexPath.row)
-        } else {
-            user = usersStorage.getUser(at: indexPath.row)
-        }
-        
-        // TODO: Clean it
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath)
         
-        var prefix = ""
-        if user.isFavorite {
-            prefix = "♥️"
-        }
-        
-        cell.textLabel?.text = prefix + user.firstName!
-        cell.detailTextLabel?.text = user.lastName
+        cell.textLabel?.text = listViewModel.textLabelText
+        cell.detailTextLabel?.text = listViewModel.detailsLabelText
         
         return cell
     }
@@ -76,50 +67,36 @@ final class ListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        // TODO: Clean it
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { [weak self] (action, indexPath) in
-            guard let strongSelf = self else { return }
-
-            strongSelf.usersStorage.removeUser(at: indexPath.row)
-
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
+        let delete = getDeleteRowAction(tableView, editActionsForRowAt: indexPath)
+        let favorite = getFavoriteRowAction(tableView, editActionsForRowAt: indexPath)
         
-        let user = usersStorage.getUser(at: indexPath.row)
-        
-        let favoriteTitle: String
-        
-        if user.isFavorite {
-            favoriteTitle = "💔"
-        } else {
-            favoriteTitle = "♥️"
-        }
-
-        let favorite = UITableViewRowAction(style: .default, title: favoriteTitle) { [weak self] (action, indexPath) in
-            let user = self?.usersStorage.getUser(at: indexPath.row)
-            user?.toggleFavorite()
-
-            tableView.reloadRows(at: [indexPath], with: .right)
-        }
-
-        favorite.backgroundColor = .yellow
-
         return [delete, favorite]
     }
     
-    @IBAction func refresh(_ sender: UIRefreshControl) {
-        apiService.request(.results(Configuration.resultsCount, apiVersion: Configuration.apiVersion)) { [weak self] (response, error) in
-            defer {
-                self?.refreshControl?.endRefreshing()
-            }
+    private func getDeleteRowAction(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> UITableViewRowAction {
+        return UITableViewRowAction(style: .destructive, title: "Delete") { [weak self] (action, indexPath) in
+            guard let strongSelf = self else { return }
             
-            guard let results = response?.results else { return }
+            strongSelf.presenter.removeUser(at: indexPath.row, isFavoriteModeEnabled: strongSelf.isFavoriteModeEnabled, filterString: strongSelf.filterString)
             
-            let users = UserFactory.makeUsers(from: results)
-            self?.usersStorage.replaceUsers(with: users)
-            
-            self?.tableView.reloadData()
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    private func getFavoriteRowAction(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> UITableViewRowAction {
+        let listViewModel = presenter.getListViewModels(isFavoriteModeEnabled: isFavoriteModeEnabled, filterString: filterString)[indexPath.row]
+        
+        let favorite = UITableViewRowAction(style: .default, title: listViewModel.favoriteButtonTitle) { [weak self] (action, indexPath) in
+            guard let strongSelf = self else { return }
+            
+            self?.presenter.toggleFavoriteForUser(at: indexPath.row, isFavoriteModeEnabled: strongSelf.isFavoriteModeEnabled, filterString: strongSelf.filterString)
+            
+            tableView.reloadRows(at: [indexPath], with: .right)
+        }
+        
+        favorite.backgroundColor = .yellow
+        
+        return favorite
     }
     
     // MARK: - Navigation
@@ -130,7 +107,7 @@ final class ListTableViewController: UITableViewController {
                 return
         }
         
-        detailsTableViewController.presenter.user = usersStorage.getUser(at: indexOfSelectedUser)
+        detailsTableViewController.presenter.user = presenter.getUser(at: indexOfSelectedUser, isFavoriteModeEnabled: isFavoriteModeEnabled, filterString: filterString)
     }
     
 }

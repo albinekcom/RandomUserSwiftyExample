@@ -1,37 +1,17 @@
-import UIKit
+import Foundation
 
 final class UsersStorage {
     
     private let usersKey = "users"
     
-    private var allUsers = [User]()
+    private(set) var allUsers = [User]()
     
-    private var favoriteUsers: [User] {
-        return allUsers.filter { $0.isFavorite }
+    func replaceUsers(with newUsers: [User]) {
+        allUsers = newUsers
     }
     
     func removeUser(at index: Int) {
         allUsers.remove(at: index)
-    }
-    
-    var usersCount: Int {
-        return allUsers.count
-    }
-    
-    var favoriteUsersCount: Int {
-        return favoriteUsers.count
-    }
-    
-    func getFavoriteUser(at index: Int) -> User {
-        return favoriteUsers[index]
-    }
-    
-    func getUser(at index: Int) -> User {
-        return allUsers[index]
-    }
-    
-    func replaceUsers(with newUsers: [User]) {
-        allUsers = newUsers
     }
     
     // MARK: - Persisting Data
