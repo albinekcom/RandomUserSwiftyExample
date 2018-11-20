@@ -11,8 +11,8 @@ struct APIService {
                 return
             }
 
-            let users = try? APIResponseParser().parseResponse(data: data)
-            completion(users, nil)
+            let response = try? APIResponseParser().parseResponse(data: data)
+            completion(response, nil)
         }
 
         task.resume()
