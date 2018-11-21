@@ -5,9 +5,7 @@ final class ListTableViewController: UITableViewController {
     private let presenter = ListPresenter()
     
     private var indexOfSelectedUser: Int?
-    private var isFavoriteModeEnabled = false
-    private var filterString: String = ""
-    
+
     @IBOutlet private weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -15,17 +13,17 @@ final class ListTableViewController: UITableViewController {
         
         searchBar.delegate = self
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: presenter.getFavoriteButtonTitle(isFavoriteModeEnabled: isFavoriteModeEnabled), style: .plain, target: self, action: #selector(favoriteTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: presenter.getFavoriteButtonTitle(), style: .plain, target: self, action: #selector(favoriteTapped))
     }
     
     private func setupFavoriteButtonTitle() {
-        navigationItem.rightBarButtonItem?.title = presenter.getFavoriteButtonTitle(isFavoriteModeEnabled: isFavoriteModeEnabled)
+        navigationItem.rightBarButtonItem?.title = presenter.getFavoriteButtonTitle()
     }
     
     // MARK: - Actions
     
     @IBAction func refresh(_ sender: UIRefreshControl) {
-        presenter.refresh() { [weak self] (_) in
+        presenter.fetchNewUsers() { [weak self] (_) in
             DispatchQueue.main.async { [weak self] in
                 self?.refreshControl?.endRefreshing()
                 self?.tableView.reloadData()
@@ -34,7 +32,7 @@ final class ListTableViewController: UITableViewController {
     }
     
     @objc private func favoriteTapped() {
-        isFavoriteModeEnabled = !isFavoriteModeEnabled
+        presenter.isFavoriteModeEnabled = !presenter.isFavoriteModeEnabled
         
         setupFavoriteButtonTitle()
         
@@ -48,13 +46,13 @@ final class ListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.getListViewModels(isFavoriteModeEnabled: isFavoriteModeEnabled, filterString: filterString).count
+        return presenter.listViewModels.count
     }
     
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let listViewModel = presenter.getListViewModels(isFavoriteModeEnabled: isFavoriteModeEnabled, filterString: filterString)[indexPath.row]
+        let listViewModel = presenter.listViewModels[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath)
         
@@ -81,19 +79,17 @@ final class ListTableViewController: UITableViewController {
         return UITableViewRowAction(style: .destructive, title: "Delete") { [weak self] (action, indexPath) in
             guard let strongSelf = self else { return }
             
-            strongSelf.presenter.removeUser(at: indexPath.row, isFavoriteModeEnabled: strongSelf.isFavoriteModeEnabled, filterString: strongSelf.filterString)
+            strongSelf.presenter.removeUser(at: indexPath.row)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
     private func getFavoriteRowAction(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> UITableViewRowAction {
-        let listViewModel = presenter.getListViewModels(isFavoriteModeEnabled: isFavoriteModeEnabled, filterString: filterString)[indexPath.row]
+        let listViewModel = presenter.listViewModels[indexPath.row]
         
         let favorite = UITableViewRowAction(style: .default, title: listViewModel.favoriteButtonTitle) { [weak self] (action, indexPath) in
-            guard let strongSelf = self else { return }
-            
-            self?.presenter.toggleFavoriteForUser(at: indexPath.row, isFavoriteModeEnabled: strongSelf.isFavoriteModeEnabled, filterString: strongSelf.filterString)
+            self?.presenter.toggleFavoriteForUser(at: indexPath.row)
             
             tableView.reloadRows(at: [indexPath], with: .right)
         }
@@ -111,7 +107,7 @@ final class ListTableViewController: UITableViewController {
                 return
         }
         
-        detailsTableViewController.presenter.user = presenter.getUser(at: indexOfSelectedUser, isFavoriteModeEnabled: isFavoriteModeEnabled, filterString: filterString)
+        detailsTableViewController.presenter.user = presenter.getUser(at: indexOfSelectedUser)
     }
     
 }
@@ -119,7 +115,7 @@ final class ListTableViewController: UITableViewController {
 extension ListTableViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filterString = searchText.lowercased()
+        presenter.filterString = searchText.lowercased()
         
         tableView.reloadData()
     }

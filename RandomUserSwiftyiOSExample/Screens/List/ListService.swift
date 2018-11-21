@@ -10,7 +10,7 @@ final class ListService {
         self.usersStorage = usersStorage
     }
     
-    func fetchUsers(_ completion: @escaping (Error?) -> Void) {
+    func fetchNewUsers(_ completion: @escaping (Error?) -> Void) {
         apiService.request(.results(Configuration.resultsCount, apiVersion: Configuration.apiVersion)) { [weak self] (response, error) in
             guard let results = response?.results else {
                 completion(error)
