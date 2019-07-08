@@ -17,7 +17,7 @@ final class ListPresenter {
     
     private(set) var listViewModels: [ListViewModel] = [ListViewModel]()
     
-    private let service = ListService(apiService: APIService(), usersStorage: (UIApplication.shared.delegate as! AppDelegate).usersStorage)
+    private let service = ListService(apiService: APIService(), usersStorage: (UIApplication.shared.delegate as! SceneDelegate).usersStorage)
     
     func fetchNewUsers(completion: @escaping ((Error?) -> Void)) {
         service.fetchNewUsers { [weak self] (error) in
