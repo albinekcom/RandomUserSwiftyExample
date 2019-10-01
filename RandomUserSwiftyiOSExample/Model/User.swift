@@ -1,6 +1,16 @@
 import Foundation
 
-final class User: Codable {
+final class User: Codable, Equatable, Identifiable {
+    
+    static func == (lhs: User, rhs: User) -> Bool {
+        return
+            lhs.firstName == rhs.firstName &&
+            lhs.lastName == rhs.lastName &&
+            lhs.gender == rhs.gender &&
+            lhs.email == rhs.email &&
+            lhs.email == rhs.email &&
+            lhs.cell == rhs.cell
+    }
     
     let firstName: String?
     let lastName: String?
@@ -9,20 +19,20 @@ final class User: Codable {
     let phone: String?
     let cell: String?
     
-    private(set) var isFavorite: Bool
+    let id: String
     
-    init(firstName: String?, lastName: String?, gender: String?, email: String?, phone: String?, cell: String?, isFavorite: Bool) {
+    init(firstName: String?, lastName: String?, gender: String?, email: String?, phone: String?, cell: String?) {
         self.firstName = firstName
         self.lastName = lastName
         self.gender = gender
         self.email = email
         self.phone = phone
         self.cell = cell
-        self.isFavorite = isFavorite
+        
+        if let email = email {
+            self.id = email
+        } else {
+            self.id = UUID().uuidString
+        }
     }
-    
-    func toggleFavorite() {
-        self.isFavorite = !isFavorite
-    }
-    
 }

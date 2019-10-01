@@ -20,8 +20,7 @@ struct UserFactory {
             gender: result.gender,
             email: result.email,
             phone: result.phone,
-            cell: result.cell,
-            isFavorite: false
+            cell: result.cell
         )
         
         return user
