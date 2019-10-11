@@ -1,18 +1,13 @@
-import Foundation
+import SwiftUI
 
-final class UsersStorage {
+final class UserData: ObservableObject {
     
-    private let usersKey = "users"
+    @Published var showFavoritesOnly: Bool = false
+    @Published var allUsers: [User] = [User]()
     
-    private(set) var allUsers = [User]()
+    // MARK: - Private
     
-    func replaceUsers(with newUsers: [User]) {
-        allUsers = newUsers
-    }
-    
-    func removeUser(at index: Int) {
-        allUsers.remove(at: index)
-    }
+    private let usersKey: String = "users"
     
     // MARK: - Persisting Data
     
@@ -24,18 +19,6 @@ final class UsersStorage {
         }
     }
     
-//    func loadFromTheDeviceStorage() {
-//        guard let usersData = UserDefaults.standard.object(forKey: usersKey) as? Data else { return }
-//
-//        do {
-//            let loadedUsers = try PropertyListDecoder().decode([User].self, from: usersData)
-//
-//            replaceUsers(with: loadedUsers)
-//        } catch {
-//            print("Loading failed...")
-//        }
-//    }
-    
     func loadFromTheDeviceStorage() {
         let user1 = User(firstName: "firstName 1", lastName: "lastName 1", gender: "gender", email: "email1@email.com", phone: "123456789", cell: "123456789")
         let user2 = User(firstName: "firstName 2", lastName: "lastName 2", gender: "gender", email: "email2@email.com", phone: "123456789", cell: "123456789")
@@ -44,7 +27,9 @@ final class UsersStorage {
         
         let users = [user1, user2, user3, user4]
         
-        replaceUsers(with: users)
+        DispatchQueue.main.async { [weak self] in
+            self?.allUsers = users
+        }
     }
     
 }

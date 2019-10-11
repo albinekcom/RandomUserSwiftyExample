@@ -1,20 +1,32 @@
 import SwiftUI
+import Combine
 
 struct ListView: View {
     
-    let usersStorage: UsersStorage
+    @EnvironmentObject private var userData: UserData
     
     var body: some View {
         NavigationView {
-            List(usersStorage.allUsers) { user in
-                NavigationLink(destination: DetailView(user: user)) {
-                    ListRow(title: user.firstName, subtitle: user.lastName)
+            List {
+                Toggle(isOn: $userData.showFavoritesOnly) {
+                    Text("Show favorites only")
                 }
+
+                ForEach(userData.allUsers) { user in
+                    if self.userData.showFavoritesOnly == false || user.isFavorite {
+                        NavigationLink(destination: DetailView(user: user).environmentObject(self.userData)) {
+                            ListRow(title: user.firstName, subtitle: user.lastName)
+                        }
+                    }
+                }
+                .onMove(perform: move)
+                .onDelete(perform: delete)
             }
             .navigationBarTitle("Users")
-            .navigationBarItems(trailing:
+            .navigationBarItems(leading: EditButton(), trailing:
                 Button(action: {
-                    UserStorageRefreshService(usersStorage: self.usersStorage).refreshUsers()
+                    print("🔘 Refresh button pressed")
+//                    ListRefreshService(userData: self.userData).refreshUsers()
                 }, label: {
                     Image(systemName: "arrow.clockwise")
                 })
@@ -22,21 +34,12 @@ struct ListView: View {
         }
     }
     
-}
-
-final class UserStorageRefreshService {
-    
-    let usersStorage: UsersStorage
-    let apiService: APIService
-    
-    init(usersStorage: UsersStorage) {
-        self.usersStorage = usersStorage
-        self.apiService = APIService()
+    func move(from source: IndexSet, to destination: Int) {
+        userData.allUsers.move(fromOffsets: source, toOffset: destination)
     }
     
-    func refreshUsers() {
-        APIService().request(.results(Configuration.resultsCount, apiVersion: Configuration.apiVersion)) { response, error in
-        }
+    func delete(at offsets: IndexSet) {
+        userData.allUsers.remove(atOffsets: offsets)
     }
     
 }
@@ -45,7 +48,7 @@ final class UserStorageRefreshService {
 struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
-        ListView(usersStorage: UsersStorage())
+        ListView().environmentObject(UserData())
     }
     
 }

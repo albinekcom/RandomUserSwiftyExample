@@ -4,7 +4,7 @@ import SwiftUI
 @UIApplicationMain
 final class SceneDelegate: UIResponder, UIApplicationDelegate {
     
-    private let usersStorage: UsersStorage = UsersStorage()
+    private let userData: UserData = UserData()
     
     var window: UIWindow?
 }
@@ -15,16 +15,18 @@ extension SceneDelegate: UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
             
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UIHostingController(rootView: ListView(usersStorage: usersStorage))
+        window.rootViewController = UIHostingController(rootView: ListView().environmentObject(userData))
         window.makeKeyAndVisible()
         
         self.window = window
         
-        usersStorage.loadFromTheDeviceStorage()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.userData.loadFromTheDeviceStorage()
+        }
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
-        usersStorage.saveToTheDeviceStorage()
+        userData.saveToTheDeviceStorage()
     }
     
 }

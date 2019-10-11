@@ -21,6 +21,8 @@ final class User: Codable, Equatable, Identifiable {
     
     let id: String
     
+    var isFavorite: Bool = false
+    
     init(firstName: String?, lastName: String?, gender: String?, email: String?, phone: String?, cell: String?) {
         self.firstName = firstName
         self.lastName = lastName
