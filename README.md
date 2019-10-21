@@ -6,5 +6,3 @@
 ## Used approaches
 
 - SwiftUI
-- MVVM
-- Coordinators
