@@ -17,7 +17,6 @@
 		8C56E60121A3584000F4366A /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C56E60021A3584000F4366A /* ConfigurationTests.swift */; };
 		8C56E60421A35A8800F4366A /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C56E60321A35A8800F4366A /* UserTests.swift */; };
 		8C56E60621A35B9800F4366A /* UserFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C56E60521A35B9800F4366A /* UserFactoryTests.swift */; };
-		8C56E61221A3696A00F4366A /* DetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C56E61121A3696A00F4366A /* DetailsPresenterTests.swift */; };
 		8C59E74821A2849300714602 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74421A2849300714602 /* User.swift */; };
 		8C59E74A21A2849300714602 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74621A2849300714602 /* UserFactory.swift */; };
 		8C59E74C21A285B500714602 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59E74B21A285B500714602 /* UsersData.swift */; };
@@ -63,7 +62,6 @@
 		8C56E60021A3584000F4366A /* ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 		8C56E60321A35A8800F4366A /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		8C56E60521A35B9800F4366A /* UserFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactoryTests.swift; sourceTree = "<group>"; };
-		8C56E61121A3696A00F4366A /* DetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenterTests.swift; sourceTree = "<group>"; };
 		8C59E74421A2849300714602 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8C59E74621A2849300714602 /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		8C59E74B21A285B500714602 /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
@@ -136,22 +134,6 @@
 				8C56E60521A35B9800F4366A /* UserFactoryTests.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		8C56E60F21A3694E00F4366A /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				8C56E61021A3695700F4366A /* Details */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		8C56E61021A3695700F4366A /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				8C56E61121A3696A00F4366A /* DetailsPresenterTests.swift */,
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		8C59E74221A2849300714602 /* Models */ = {
@@ -260,7 +242,6 @@
 		8CB58255219CB8E500FBCE6C /* RandomUserSwiftyiOSExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				8C56E60F21A3694E00F4366A /* Screens */,
 				8C7DE37B21A0967B00FE1017 /* API */,
 				8C56E60221A35A6800F4366A /* Model */,
 				8C56E60021A3584000F4366A /* ConfigurationTests.swift */,
@@ -440,7 +421,6 @@
 				8C7DE37D21A0968C00FE1017 /* EndpointTests.swift in Sources */,
 				8C56E60121A3584000F4366A /* ConfigurationTests.swift in Sources */,
 				8C56E60621A35B9800F4366A /* UserFactoryTests.swift in Sources */,
-				8C56E61221A3696A00F4366A /* DetailsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

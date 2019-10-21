@@ -4,8 +4,6 @@ struct DetailView: View {
     
     @EnvironmentObject var userData: UserData
     
-    @State var isFavorite: UserData
-    
     var user: User
     
     var userIndex: Int {

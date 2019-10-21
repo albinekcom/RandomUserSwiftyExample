@@ -16,21 +16,7 @@ final class UserTests: XCTestCase {
             gender: "Test Gender",
             email: "Test Email",
             phone: "Test Phone",
-            cell: "Test Cell",
-            isFavorite: false
+            cell: "Test Cell"
         )
     }
-    
-    // MARK: - Tests
-
-    func testToggleFavorite() {
-        XCTAssertFalse(user.isFavorite)
-        
-        user.toggleFavorite()
-        XCTAssertTrue(user.isFavorite)
-        
-        user.toggleFavorite()
-        XCTAssertFalse(user.isFavorite)
-    }
-
 }
