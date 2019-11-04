@@ -15,7 +15,7 @@ struct ListView: View {
                 ForEach(userData.allUsers) { user in
                     if self.userData.showFavoritesOnly == false || user.isFavorite {
                         NavigationLink(destination: DetailView(user: user).environmentObject(self.userData)) {
-                            ListRow(title: user.firstName, subtitle: user.lastName)
+                            ListRow(title: user.firstName, subtitle: user.lastName, isFavorite: user.isFavorite)
                         }
                     }
                 }
@@ -25,8 +25,7 @@ struct ListView: View {
             .navigationBarTitle("Users")
             .navigationBarItems(leading: EditButton(), trailing:
                 Button(action: {
-                    print("🔘 Refresh button pressed")
-//                    ListRefreshService(userData: self.userData).refreshUsers()
+                    ListRefreshService(userData: self.userData).refreshUsers()
                 }, label: {
                     Image(systemName: "arrow.clockwise")
                 })

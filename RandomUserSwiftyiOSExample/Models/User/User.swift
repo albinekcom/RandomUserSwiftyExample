@@ -1,6 +1,6 @@
 import Foundation
 
-final class User: Codable, Equatable, Identifiable {
+struct User: Codable, Equatable, Identifiable {
     
     static func == (lhs: User, rhs: User) -> Bool {
         return
@@ -30,11 +30,6 @@ final class User: Codable, Equatable, Identifiable {
         self.email = email
         self.phone = phone
         self.cell = cell
-        
-        if let email = email {
-            self.id = email
-        } else {
-            self.id = UUID().uuidString
-        }
+        self.id = UUID().uuidString
     }
 }

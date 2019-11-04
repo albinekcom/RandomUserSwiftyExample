@@ -1,3 +1,5 @@
+
+import Combine
 import SwiftUI
 
 final class UserData: ObservableObject {
@@ -8,6 +10,15 @@ final class UserData: ObservableObject {
     // MARK: - Private
     
     private let usersKey: String = "users"
+    
+    init() {
+        let user1 = User(firstName: "firstName 1", lastName: "lastName 1", gender: "gender", email: "email1@email.com", phone: "123456789", cell: "123456789")
+        let user2 = User(firstName: "firstName 2", lastName: "lastName 2", gender: "gender", email: "email2@email.com", phone: "123456789", cell: "123456789")
+        let user3 = User(firstName: "firstName 3", lastName: "lastName 3", gender: "gender", email: "email3@email.com", phone: "123456789", cell: "123456789")
+        let user4 = User(firstName: "firstName 4", lastName: "lastName 4", gender: "gender", email: "email4@email.com", phone: "123456789", cell: "123456789")
+        
+        allUsers = [user1, user2, user3, user4]
+    }
     
     // MARK: - Persisting Data
     
