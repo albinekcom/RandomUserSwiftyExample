@@ -15,7 +15,7 @@ extension SceneDelegate: UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
             
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UIHostingController(rootView: ListView().environmentObject(userData))
+        window.rootViewController = UIHostingController(rootView: UserList().environmentObject(userData))
         window.makeKeyAndVisible()
         
         self.window = window

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2633AAC3234379D3004236EC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2633AAC2234379D3004236EC /* DetailView.swift */; };
-		2633AAC5234388E2004236EC /* DetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2633AAC4234388E2004236EC /* DetailRow.swift */; };
-		2633AAC723438FAD004236EC /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2633AAC623438FAD004236EC /* DetailViewModel.swift */; };
-		2633AAC9234392AD004236EC /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2633AAC8234392AD004236EC /* ListRow.swift */; };
-		26555349234DE5B200EBD732 /* ListRefreshService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26555348234DE5B200EBD732 /* ListRefreshService.swift */; };
+		2633AAC3234379D3004236EC /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2633AAC2234379D3004236EC /* UserDetail.swift */; };
+		2633AAC5234388E2004236EC /* UserDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2633AAC4234388E2004236EC /* UserDetailRow.swift */; };
+		2633AAC723438FAD004236EC /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2633AAC623438FAD004236EC /* UserDetailViewModel.swift */; };
+		2633AAC9234392AD004236EC /* UserListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2633AAC8234392AD004236EC /* UserListRow.swift */; };
+		26555349234DE5B200EBD732 /* UserListRefreshService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26555348234DE5B200EBD732 /* UserListRefreshService.swift */; };
 		8C56B83E22D3C927008AC5A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C56B83D22D3C927008AC5A4 /* SceneDelegate.swift */; };
-		8C56B84022D3CA43008AC5A4 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C56B83F22D3CA43008AC5A4 /* ListView.swift */; };
+		8C56B84022D3CA43008AC5A4 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C56B83F22D3CA43008AC5A4 /* UserList.swift */; };
 		8C56E60121A3584000F4366A /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C56E60021A3584000F4366A /* ConfigurationTests.swift */; };
 		8C56E60421A35A8800F4366A /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C56E60321A35A8800F4366A /* UserTests.swift */; };
 		8C56E60621A35B9800F4366A /* UserFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C56E60521A35B9800F4366A /* UserFactoryTests.swift */; };
@@ -52,13 +52,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2633AAC2234379D3004236EC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		2633AAC4234388E2004236EC /* DetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRow.swift; sourceTree = "<group>"; };
-		2633AAC623438FAD004236EC /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		2633AAC8234392AD004236EC /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
-		26555348234DE5B200EBD732 /* ListRefreshService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRefreshService.swift; sourceTree = "<group>"; };
+		2633AAC2234379D3004236EC /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
+		2633AAC4234388E2004236EC /* UserDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailRow.swift; sourceTree = "<group>"; };
+		2633AAC623438FAD004236EC /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
+		2633AAC8234392AD004236EC /* UserListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRow.swift; sourceTree = "<group>"; };
+		26555348234DE5B200EBD732 /* UserListRefreshService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRefreshService.swift; sourceTree = "<group>"; };
 		8C56B83D22D3C927008AC5A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8C56B83F22D3CA43008AC5A4 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		8C56B83F22D3CA43008AC5A4 /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
 		8C56E60021A3584000F4366A /* ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 		8C56E60321A35A8800F4366A /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		8C56E60521A35B9800F4366A /* UserFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactoryTests.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		2655534A234DE5BE00EBD732 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				26555348234DE5B200EBD732 /* ListRefreshService.swift */,
+				26555348234DE5B200EBD732 /* UserListRefreshService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -158,8 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				2655534A234DE5BE00EBD732 /* Services */,
-				8C56B83F22D3CA43008AC5A4 /* ListView.swift */,
-				2633AAC8234392AD004236EC /* ListRow.swift */,
+				8C56B83F22D3CA43008AC5A4 /* UserList.swift */,
+				2633AAC8234392AD004236EC /* UserListRow.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -177,9 +177,9 @@
 		8C59E75621A2934F00714602 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				2633AAC2234379D3004236EC /* DetailView.swift */,
-				2633AAC4234388E2004236EC /* DetailRow.swift */,
-				2633AAC623438FAD004236EC /* DetailViewModel.swift */,
+				2633AAC2234379D3004236EC /* UserDetail.swift */,
+				2633AAC4234388E2004236EC /* UserDetailRow.swift */,
+				2633AAC623438FAD004236EC /* UserDetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -395,19 +395,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CF6F18B21A1D2DE00415996 /* APIResponse.swift in Sources */,
-				8C56B84022D3CA43008AC5A4 /* ListView.swift in Sources */,
+				8C56B84022D3CA43008AC5A4 /* UserList.swift in Sources */,
 				8CF6F18321A1BFD600415996 /* APIResponseParser.swift in Sources */,
 				8C56B83E22D3C927008AC5A4 /* SceneDelegate.swift in Sources */,
 				8C59E74821A2849300714602 /* User.swift in Sources */,
-				2633AAC5234388E2004236EC /* DetailRow.swift in Sources */,
-				26555349234DE5B200EBD732 /* ListRefreshService.swift in Sources */,
+				2633AAC5234388E2004236EC /* UserDetailRow.swift in Sources */,
+				26555349234DE5B200EBD732 /* UserListRefreshService.swift in Sources */,
 				8C7DE37521A0876D00FE1017 /* APIService.swift in Sources */,
 				8C7DE37821A08BF000FE1017 /* Endpoint.swift in Sources */,
 				8C59E74C21A285B500714602 /* UsersData.swift in Sources */,
-				2633AAC723438FAD004236EC /* DetailViewModel.swift in Sources */,
-				2633AAC3234379D3004236EC /* DetailView.swift in Sources */,
+				2633AAC723438FAD004236EC /* UserDetailViewModel.swift in Sources */,
+				2633AAC3234379D3004236EC /* UserDetail.swift in Sources */,
 				8CF6F19521A1F7C300415996 /* Configuration.swift in Sources */,
-				2633AAC9234392AD004236EC /* ListRow.swift in Sources */,
+				2633AAC9234392AD004236EC /* UserListRow.swift in Sources */,
 				8C59E74A21A2849300714602 /* UserFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

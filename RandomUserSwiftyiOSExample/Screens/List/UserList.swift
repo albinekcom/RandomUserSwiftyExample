@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-struct ListView: View {
+struct UserList: View {
     
     @EnvironmentObject private var userData: UserData
     
@@ -14,8 +14,8 @@ struct ListView: View {
 
                 ForEach(userData.allUsers) { user in
                     if self.userData.showFavoritesOnly == false || user.isFavorite {
-                        NavigationLink(destination: DetailView(user: user).environmentObject(self.userData)) {
-                            ListRow(title: user.firstName, subtitle: user.lastName, isFavorite: user.isFavorite)
+                        NavigationLink(destination: UserDetail(user: user).environmentObject(self.userData)) {
+                            UserListRow(title: user.firstName, subtitle: user.lastName, isFavorite: user.isFavorite)
                         }
                     }
                 }
@@ -25,7 +25,7 @@ struct ListView: View {
             .navigationBarTitle("Users")
             .navigationBarItems(leading: EditButton(), trailing:
                 Button(action: {
-                    ListRefreshService(userData: self.userData).refreshUsers()
+                    UserListRefreshService(userData: self.userData).refreshUsers()
                 }, label: {
                     Image(systemName: "arrow.clockwise")
                 })
@@ -47,7 +47,7 @@ struct ListView: View {
 struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
-        ListView().environmentObject(UserData())
+        UserList().environmentObject(UserData())
     }
     
 }

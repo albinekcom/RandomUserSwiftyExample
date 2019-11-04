@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DetailRow: View {
+struct UserDetailRow: View {
     
     let title: String
     let subtitle: String
@@ -19,7 +19,7 @@ struct DetailRow: View {
 struct DetailRow_Previews: PreviewProvider {
     
     static var previews: some View {
-        DetailRow(title: "Title", subtitle: "Subtitle")
+        UserDetailRow(title: "Title", subtitle: "Subtitle")
     }
     
 }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DetailView: View {
+struct UserDetail: View {
     
     @EnvironmentObject var userData: UserData
     
@@ -19,15 +19,15 @@ struct DetailView: View {
     }
     
     var body: some View {
-        let detailViewModel = DetailViewModel(user: user)
+        let detailViewModel = UserDetailViewModel(user: user)
         
         return List {
-            DetailRow(title: detailViewModel.firstName, subtitle: "First name")
-            DetailRow(title: detailViewModel.lastName, subtitle: "Last name")
-            DetailRow(title: detailViewModel.gender, subtitle: "Gender")
-            DetailRow(title: detailViewModel.email, subtitle: "E-mail")
-            DetailRow(title: detailViewModel.phone, subtitle: "Phone")
-            DetailRow(title: detailViewModel.cell, subtitle: "Cell")
+            UserDetailRow(title: detailViewModel.firstName, subtitle: "First name")
+            UserDetailRow(title: detailViewModel.lastName, subtitle: "Last name")
+            UserDetailRow(title: detailViewModel.gender, subtitle: "Gender")
+            UserDetailRow(title: detailViewModel.email, subtitle: "E-mail")
+            UserDetailRow(title: detailViewModel.phone, subtitle: "Phone")
+            UserDetailRow(title: detailViewModel.cell, subtitle: "Cell")
         }
         .navigationBarTitle("Detail")
         .navigationBarItems(trailing:
@@ -67,7 +67,7 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         let userData = UserData()
         
-        return DetailView(user: userData.allUsers[0]).environmentObject(userData)
+        return UserDetail(user: userData.allUsers[0]).environmentObject(userData)
     }
     
 }

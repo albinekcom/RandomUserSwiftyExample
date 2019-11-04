@@ -1,7 +1,5 @@
 
-import SwiftUI
-
-struct DetailViewModel {
+struct UserDetailViewModel {
     
     let user: User
     

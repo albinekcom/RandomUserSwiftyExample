@@ -1,6 +1,6 @@
 import Foundation
 
-final class ListRefreshService {
+final class UserListRefreshService {
     
     let userData: UserData
     let apiService: APIService

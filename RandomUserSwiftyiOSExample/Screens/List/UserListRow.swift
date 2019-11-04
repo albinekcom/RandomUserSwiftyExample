@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ListRow: View {
+struct UserListRow: View {
     
     let title: String?
     let subtitle: String?
@@ -31,8 +31,8 @@ struct ListRow_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            ListRow(title: "Title", subtitle: "Subtitle without star", isFavorite: false)
-            ListRow(title: "Title", subtitle: "Subtitle with star", isFavorite: true)
+            UserListRow(title: "Title", subtitle: "Subtitle without star", isFavorite: false)
+            UserListRow(title: "Title", subtitle: "Subtitle with star", isFavorite: true)
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }
