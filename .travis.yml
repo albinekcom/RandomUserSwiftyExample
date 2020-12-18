@@ -5,7 +5,7 @@ os:
   - osx
 
 osx_image:
-  - xcode11.2
+  - xcode12.2
 
 script:
-  - xcodebuild test -project RandomUserSwiftyiOSExample.xcodeproj -scheme RandomUserSwiftyiOSExample -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+  - xcodebuild test -project RandomUserSwiftyiOSExample.xcodeproj -scheme RandomUserSwiftyiOSExample -destination "platform=iOS Simulator,name=iPhone 12"
